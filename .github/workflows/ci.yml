@@ -2,6 +2,6 @@ name: GitHub Actions Demo
 on: [push]
 jobs:
     build-job:
-        runs-on: ubuntu-lastes
+        runs-on: ubuntu-lastest
         steps:
             - run: echo "Hello World"
