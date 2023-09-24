@@ -8,20 +8,25 @@ on:
             - main
 env:
     My_HOST: '127.0.0.1'
-
+    COMPANY_NAME: 'CCT'
+   
 
 
 jobs:
     build-job:
         runs-on: ubuntu-latest
+        env:
+            FULLNAME: 'Tikkkimo'
         steps:
-            - run: echo "My host is $MY_HOST"
-            - run: echo "Hello ${{github.actor}}"
+            - run: echo ${{ vars.COMPANY_NAME}}
+            - run: echo ${{ env.COMPANY_NAME }}
+            - run: echo "My host is $My_HOST and $FULLNAME $COMPANY_NAME"
+            - run: echo "Hello ${{github.actor}}" $FULLNAME
     test-job:
         runs-on: ubuntu-latest
         needs: build-job
         steps:
-            - run: echo "Repo is ${{github.repository}} ${{env.MY_HOST}}"  
+            - run: echo "Repo is ${{github.repository}} ${{env.My_HOST}}"  
     deploy-job:
         runs-on: ubuntu-latest
         needs: test-job
