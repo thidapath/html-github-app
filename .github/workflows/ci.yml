@@ -18,7 +18,7 @@ jobs:
         env:
             FULLNAME: 'Tikkkimo'
         steps:
-            - run: echo ${{ vars.COMPANY_NAME}}
+           
             - run: echo ${{ env.COMPANY_NAME }}
             - run: echo "My host is $My_HOST and $FULLNAME $COMPANY_NAME"
             - run: echo "Hello ${{github.actor}}" $FULLNAME
